@@ -42,7 +42,6 @@ def score_display(game_state):
         score_surfake = game_font.render(f'Score: {int(score)}',True,(255,255,255))
         score_rect = score_surfake.get_rect(center = (216,100))
         screen.blit(score_surfake,score_rect)
-        
         high_score_surfake = game_font.render(f'High Score: {int(score)}',True,(255,255,255))
         high_score_rect = high_score_surfake.get_rect(center = (216,630))
         screen.blit(high_score_surfake,high_score_rect)      
@@ -65,23 +64,23 @@ score = 0
 high_score = 0
 bg = pygame.image.load('assets/background-night.png').convert()
 bg = pygame.transform.scale2x(bg)
-#chèn sàn
 floor = pygame.image.load('assets/floor.png').convert()
 floor = pygame.transform.scale2x(floor)
 floor_x_pos = 0
 bird_down = pygame.transform.scale2x(pygame.image.load('assets/bluebird-downflap.png').convert_alpha())
 bird_mid = pygame.transform.scale2x(pygame.image.load('assets/bluebird-midflap.png').convert_alpha())
 bird_up = pygame.transform.scale2x(pygame.image.load('assets/bluebird-upflap.png').convert_alpha())
-bird_list= [bird_down,bird_mid,bird_up] # 0 1 2
+bird_list= [bird_down,bird_mid,bird_up] 
 bird_index = 0
-bird = bird_list[bird_index] 
+bird = bird_list[bird_index]
 bird_rect = bird.get_rect(center =(100,384))
 birdflap = pygame.USEREVENT +1
 pygame.time.set_timer(birdflap,200)
 pipe_surface = pygame.image.load('assets/pipe-green.png').convert()
 pipe_surface = pygame.transform.scale2x(pipe_surface)
 pipe_list =[]
-spawnpipe= pygame.USEREVENT
+spawnpipe= pygame.USEREVENT 
+#score=1892006
 pygame.time.set_timer(spawnpipe,1600)
 pipe_height = [250,300,350]
 game_over_surface = pygame.transform.scale2x(pygame.image.load('assets/message.png').convert_alpha())
@@ -103,7 +102,7 @@ while True:
             if event.key == pygame.K_SPACE and game_active==False:
                 game_active =True
                 pipe_list.clear()
-                bird_rect.center = (100,284)
+                bird_rect.center = (100,384)
                 bird_movement = 0
                 score =0
         if event.type == spawnpipe:
